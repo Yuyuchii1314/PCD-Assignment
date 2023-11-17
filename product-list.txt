@@ -1,0 +1,5 @@
+P01|Bershey's Chocolate|15.00|5
+P02|Cock-Cola|2.00|10
+P03|Phanta|2.50|8
+P04|Ley's Chips|4.00|15
+P05|Juicy Crackers|7.00|5
