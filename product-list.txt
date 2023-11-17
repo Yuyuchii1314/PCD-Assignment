@@ -1,5 +1,10 @@
-P01|Bershey's Chocolate|15.00|5
-P02|Cock-Cola|2.00|10
-P03|Phanta|2.50|8
-P04|Ley's Chips|4.00|15
-P05|Juicy Crackers|7.00|5
+P01|SAMSUNG 23L Grill Microwave Oven|639.00|5
+P02|SAMSUNG Jet Bot+|3299.00|10
+P03|LG OLED Flex TV|13199.00|8
+P04|LG 202L Top Freezer Refrigerator|1389.00|15
+P05|PlayStation 5|2499.00|5
+P06|Sharp 2.0HP R32 Air-Cond|2289.00|5
+P07|Panasonic 1.0HP Standard Air-Cond|1299.00|8
+P08|Sharp Air Purifier|419.00|2
+P09|Xiaomi Air Purifier 4|679.00|5
+P10|Pensonic 16 Stand Fan|129.00|3
