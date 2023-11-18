@@ -1,3 +1,2 @@
-_pycache/
-dataIO.cpython-311.pyc/
-dataIO.cpython-311.pyc/
+*.pyc
+__pycache__/
