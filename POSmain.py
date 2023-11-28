@@ -4,7 +4,6 @@
 #Importing modules
 import os
 import dataIO as io
-import functions as fn
 import itemMaintenance as im
 
 #Main menu design
