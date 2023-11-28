@@ -5,6 +5,7 @@
 import os
 import dataIO as io
 import functions as fn
+import itemMaintenance as im
 
 #Main menu design
 def menu():
@@ -29,8 +30,7 @@ def main():
         opt = input("What do you wish to do? >> ")
 
         if opt == "1":
-            print("coming soon")
-            input("")
+            im.maintenance()
         elif opt == "2":
             print("coming soon")
             input("")
