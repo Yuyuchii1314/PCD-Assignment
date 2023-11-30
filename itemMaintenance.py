@@ -2,11 +2,14 @@
 #Purpose: To maintain the item database (product-list.txt)
 
 #Importing modules
-import os
-import dataIO as io
+import os, dataIO as io
 
 def line():
-    print("-"*60)  
+    print("-"*60)
+
+def quit(input):
+    if input == "Q" or input == "q":
+        return True
 
 itemList = io.openfile("product-list","r")   #Opens product-list.txt and stores it as a list
 
@@ -17,6 +20,8 @@ def add():
         code  = input("Enter Item Code        >> ")
         if any(item[0] == code for item in itemList):
             print("Item code already exists. Please re-enter item code.")
+        elif quit(code):
+            return
         else:
             break
 
@@ -29,25 +34,39 @@ def add():
     io.savefile("product-list","w",itemList)    #Saves item list into product-list.txt
 
 def modify():
-    item   = input("Enter Item Code To Modify   >> ")
     targetDD = {"C":0,"D":1,"P":2}
-    
     loop = True
     while loop:
+        item   = input("Enter Item Code To Modify   >> ")
+
+        if quit(item):
+            break
+
         for x in range(len(itemList)):
             if itemList[x][0] == item:
+                os.system("cls")
+                line()
+                print(f"{itemList[x][0]:^10s}{itemList[x][1]:40s}{float(itemList[x][2]):8.2f}")
                 line()
                 print("<C>ode     <D>escription     <P>rice")
                 line()
-                target = input("What do you wish to modify? >> ").upper()
+                
+                while True:
+                    target = input("What do you wish to modify? >> ").upper()
+                    if target in targetDD:
+                        break
+                    elif quit(target):
+                        return
+                    else:
+                        print("Invalid input. Please try again.")
+                
                 new    = input("Enter new value             >> ")
                 itemList[x][targetDD[target]] = new
                 io.savefile("product-list","w",itemList)
                 loop = False
                 return
 
-        print("Item code not found.")
-        item = input("Please re-enter item code >> ")
+        print("Item code not found. Please try again.")
         loop = True
 
 #Function to delete item
@@ -57,14 +76,24 @@ def delete():
 
         for i in range(len(itemList)):
             if itemList[i][0] == code:
-                del itemList[i]
-                io.savefile("product-list","w",itemList)
+                os.system("cls")
+                line()
+                print(f"{itemList[i][0]:^10s}{itemList[i][1]:40s}{float(itemList[i][2]):8.2f}")
+                line()
+                choice = input("Are you sure you want to delete this item? (Y/N) >> ").upper()
+                if choice == "Y":
+                    del itemList[i]
+                    io.savefile("product-list","w",itemList)
+                    return
+                else:
+                    return
+            elif quit(code):
                 return
         
         print("Item code not found. Please re-enter item code.")
 
 
-def invalid():
+def invalid(prompt):
     print("Invalid input. Please try again.")
     input("Press any key to continue.")
 
